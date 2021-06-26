@@ -9,7 +9,7 @@ const {RouterIndex} = require('./routes/index');
 app.use( RouterIndex)
 // app.use("/users", RouterIndex)
 // app.use("/users/data", RouterIndex)
-app.use(RouterIndex)
+
 
 app.listen(3000, () => {
     console.log("Servidor Escuchado en  http://localhost:3000")

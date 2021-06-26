@@ -5,28 +5,23 @@ const { Router } = require('express');
 const router = Router()
 
 //CReamos el endPoint
-router
-    .get("/", (req, res) => {
-        res.send("Hola Mundo con ExpressJS")
+router.get("/",(req, res) =>{
+    res.send("Hola mundo con ExpressJS");
+})
+.get("/saludo", (req, res) =>{
+    const { query: {nombre, apellido} } = req;
+    res.json({
+        saludo: `hola soy ${nombre} ${apellido}`,
     })
+})
+.get(`/saludo/:nombre`, (req, res) => {
+    const {params: {nombre}} = req;
 
-  
-
-    .get("/saludo", (req, res) => {
-        const { query } = req;
-        res.json({
-            saludo: `Hola soy  ${query.nombre} ${query.apellido}`,
-        });
-
+    //const nombre =req.params.nombre
+    res.json({
+        nombre: nombre,
     })
-    .get("/saludo/:nombre", (req, res) => {
-        const { params } = req;
-    
-        res.json({
-            nombre: params.nombre,
-        })
-    });
-    
+})
 
 //Exportamos las Rutas
 module.exports.RouterIndex = router

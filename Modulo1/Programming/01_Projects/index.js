@@ -5,11 +5,17 @@ const express = require('express');
 const app  = express();
 
 //Routers
-const {RouterIndex} = require('./routes/index');
-app.use( RouterIndex)
+// const {RouterIndex} = require('./routes/index');
+// app.use( RouterIndex)
 // app.use("/users", RouterIndex)
 // app.use("/users/data", RouterIndex)
 
+//Deber 
+
+const {RouterIndexDeber} = require("./routes/index2")
+
+app.use("/", RouterIndexDeber)
+app.use("/deber-video", RouterIndexDeber)
 
 app.listen(3000, () => {
     console.log("Servidor Escuchado en  http://localhost:3000")

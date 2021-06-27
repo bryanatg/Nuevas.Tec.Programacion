@@ -2,6 +2,9 @@
 const { Router } = require('express');
 
 //Inicializamos el Router
+
+
+const data = require("../data.json")
 const router = Router()
 
 //CReamos el endPoint

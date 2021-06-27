@@ -65,7 +65,7 @@ router
 
         } else {
             res.json({
-                msg: "El apellido no existe",
+                msg: "Error el Apellido no Existe",
                 body: []
 
             });

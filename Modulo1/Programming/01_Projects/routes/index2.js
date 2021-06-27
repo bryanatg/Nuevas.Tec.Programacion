@@ -2,7 +2,7 @@ const { Router } = require('express');
 const data = require("../data.json")
 const router = Router()
 
-//Modificacion de datos en mayúsculas
+//Nombre y Apellido en mayúsculas
 var modifDatos = data.map((usuarios) => {
     usuarios.first_name = usuarios.first_name.toUpperCase()
     usuarios.last_name = usuarios.last_name.toUpperCase()
@@ -13,12 +13,14 @@ router
     .get("/", (req, res) => {
         res.send("Deber Backend en ExpressJS")
     })
+    //Muestra todos los Usuarios
     .get("/users", (req, res) => {
         res.json({
             msg: "Lista de Usuario En Mayúsculas",
             body: [modifDatos]
         })
     })
+    //Muestra la Informacion del Usuario por Id
     .get("/users-query", (req, res) => {
         const { query: { id } } = req
         var usuarioFilter = modifDatos.filter(person => person.id == id)
@@ -36,6 +38,7 @@ router
 
 
     })
+    //Muestra el email del usuario  por su Apellido
     .get("/users-params/:apellido", (req, res) => {
         var { params: { apellido } } = req
         var apellidoPlus = apellido.toUpperCase()

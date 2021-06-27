@@ -35,8 +35,6 @@ router
                 body: [modifDatos]
             })
         }
-
-
     })
     //Muestra el email del usuario  por su Apellido
     .get("/users-params/:apellido", (req, res) => {
@@ -54,32 +52,19 @@ router
             if (apellidoPlus === ape.last_name) {
                 ban = true
                 break;
-
             }
-
         }
-
         if (ban == true) {
             res.json({
                 msg: " El Email Según su apellido es : ",
                 body: [{ email: buscarEmail }]
-
             });
-
         } else {
             res.json({
                 msg: "Error el Apellido no Existe",
                 body: []
-
             });
         }
-
-
-
-
-
-
-
     })
 
 
